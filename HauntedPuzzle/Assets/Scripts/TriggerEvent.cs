@@ -18,4 +18,14 @@ public class TriggerEvent : MonoBehaviour {
     {
 
     }
+
+    public virtual void Activate(bool state)
+    {
+
+    }
+
+    public virtual void Activate(int state)
+    {
+
+    }
 }

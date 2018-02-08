@@ -23,4 +23,20 @@ public class Trigger : MonoBehaviour {
             Events[i].Activate();
         }
     }
+
+    public void Activate(bool state)
+    {
+        for (int i = 0; i < Events.Count; i++)
+        {
+            Events[i].Activate(state);
+        }
+    }
+
+    public void Activate(int state)
+    {
+        for (int i = 0; i < Events.Count; i++)
+        {
+            Events[i].Activate(state);
+        }
+    }
 }
