@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour {
+public class ProximityTrigger : Trigger {
 
-    public List<TriggerEvent> Events;
+    public GameObject Target;
+    public float Range;
 
 	// Use this for initialization
 	void Start () {
@@ -13,14 +14,9 @@ public class Trigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    public void Activate()
-    {
-        for (int i = 0; i < Events.Count; i++)
+		if((Target.transform.position - transform.position).sqrMagnitude < Range * Range)
         {
-            Events[i].Activate();
+            Activate(true);
         }
-    }
+	}
 }
