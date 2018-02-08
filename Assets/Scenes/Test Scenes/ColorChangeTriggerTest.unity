@@ -289,12 +289,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fd67a01010f74b643ba7da495a1209d1, type: 2}
+  - {fileID: 2100000, guid: a840eb151caf4c84284f8763970a4574, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mats:
-  - {fileID: 2100000, guid: fd67a01010f74b643ba7da495a1209d1, type: 2}
-  - {fileID: 2100000, guid: 1961e13fb41f294468033a9c05be8f02, type: 2}
+  - {fileID: 2100000, guid: a840eb151caf4c84284f8763970a4574, type: 2}
+  - {fileID: 2100000, guid: 28ecf77b1a70afe4894730036cb7ba12, type: 2}
 --- !u!114 &1909057170
 MonoBehaviour:
   m_ObjectHideFlags: 0
