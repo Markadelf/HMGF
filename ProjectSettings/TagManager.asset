@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DoorLeft
+  - DoorRight
+  - ScaleDoorLeft
+  - ScaleDoorRight
+  - ScaleRight
+  - ScaleLeft
   layers:
   - Default
   - TransparentFX

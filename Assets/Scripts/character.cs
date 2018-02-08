@@ -27,8 +27,5 @@ public class character : MonoBehaviour {
 		{
 			transform.Rotate(-transform.up * 40.0f * Time.deltaTime);
 		}
-
-		Debug.Log("Forward: " + transform.forward.ToString("F4"));
-		Debug.Log("Up: " + transform.up.ToString("F4"));
 	}
 }
