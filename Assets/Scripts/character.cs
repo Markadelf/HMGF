@@ -21,11 +21,11 @@ public class character : MonoBehaviour {
 		}
 		if (Input.GetAxis("Horizontal") > 0) 
 		{
-			transform.Rotate(transform.up * 40.0f * Time.deltaTime);
+			transform.Rotate(transform.up * 70.0f * Time.deltaTime);
 		}
 		if (Input.GetAxis("Horizontal") < 0) 
 		{
-			transform.Rotate(-transform.up * 40.0f * Time.deltaTime);
+			transform.Rotate(-transform.up * 70.0f * Time.deltaTime);
 		}
 	}
 }

@@ -67,7 +67,7 @@ public class scaleRight : MonoBehaviour {
 		//play going up
 		if (goingUp && transform.position.y < startingYPos) 
 		{
-			transform.position += transform.up * Time.deltaTime * 0.01f;
+			transform.position += transform.up * Time.deltaTime;
 		} 
 		else 
 		{
