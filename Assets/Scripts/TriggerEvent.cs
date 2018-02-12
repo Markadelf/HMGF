@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerEvent : MonoBehaviour {
+public abstract class TriggerEvent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,18 +14,10 @@ public class TriggerEvent : MonoBehaviour {
 		
 	}
 
-    public virtual void Activate()
-    {
+    public abstract void Activate();
 
-    }
+    public abstract void Activate(bool state);
 
-    public virtual void Activate(bool state)
-    {
+    public abstract void Activate(int state);
 
-    }
-
-    public virtual void Activate(int state)
-    {
-
-    }
 }
