@@ -30,7 +30,7 @@ public class Grabber : MonoBehaviour
         {
             grabbedObject = collision.gameObject.GetComponent<Grabable>();
 
-            if (grabbedObject = null) return;
+            if (grabbedObject == null) return;
 
             grabbedObject.Grab(gameObject);
 
