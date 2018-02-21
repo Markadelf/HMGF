@@ -11,6 +11,11 @@ public class character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Left Hand  X = Axis 1 y = Axis 2
+        //Right Hand x = Axis 4 y = Axis 5
+
+        //Will test and implement!
+
 		if (Input.GetAxis("Vertical") > 0)
 		{
 			transform.position += transform.forward * Time.deltaTime;
