@@ -282,7 +282,8 @@ PlayerSettings:
     - Oculus
   - m_BuildTarget: Metro
     m_Enabled: 1
-    m_Devices: []
+    m_Devices:
+    - WindowsMR
   - m_BuildTarget: N3DS
     m_Enabled: 0
     m_Devices: []
@@ -627,6 +628,7 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   platformArchitecture: {}
   scriptingBackend:
+    Metro: 2
     Standalone: 0
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
@@ -634,13 +636,13 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: 
+  metroPackageName: HauntedPuzzle
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80f98accebcbd401
   metroApplicationDescription: v5
   wsaImages: {}
   metroTileShortName: 
