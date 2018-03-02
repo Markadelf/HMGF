@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class character : MonoBehaviour {
 
+    public float speed = 5;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,11 +20,11 @@ public class character : MonoBehaviour {
 
 		if (Input.GetAxis("Vertical") > 0)
 		{
-			transform.position += transform.forward * Time.deltaTime;
+			transform.position += transform.forward * Time.deltaTime * speed;
 		}
 		if (Input.GetAxis("Vertical") < 0)
 		{
-			transform.position -= transform.forward * Time.deltaTime;
+			transform.position -= transform.forward * Time.deltaTime * speed;
 		}
 		if (Input.GetAxis("Horizontal") > 0) 
 		{
