@@ -49,9 +49,9 @@ public class MovementResponse : TriggerEvent {
     private void Awake()
     {
         if(move)
-            transform.position = primaryLocation.position;
+            transform.localPosition = primaryLocation.localPosition;
         if(rotate)
-            transform.rotation = primaryLocation.rotation;
+            transform.localRotation = primaryLocation.localRotation;
         if(scale)
             transform.localScale = primaryLocation.localScale;
     }
@@ -67,18 +67,18 @@ public class MovementResponse : TriggerEvent {
                 if (_state)
                 {
                     if(move)
-                        transform.position = primaryLocation.position;
+                        transform.localPosition = primaryLocation.localPosition;
                     if(rotate)
-                        transform.rotation = primaryLocation.rotation;
+                        transform.localRotation = primaryLocation.localRotation;
                     if(scale)
                         transform.localScale = primaryLocation.localScale;
                 }
                 else
                 {
                     if(move)
-                        transform.position = secondaryLocation.position;
+                        transform.localPosition = secondaryLocation.localPosition;
                     if(rotate)
-                        transform.rotation = secondaryLocation.rotation;
+                        transform.localRotation = secondaryLocation.localRotation;
                     if(scale)
                         transform.localScale = secondaryLocation.localScale;
                 }
@@ -101,9 +101,9 @@ public class MovementResponse : TriggerEvent {
                     _moving = false;
                 }
                 if (move)
-                    transform.position = Vector3.Lerp(primaryLocation.position, secondaryLocation.position, _lerp);
+                    transform.localPosition = Vector3.Lerp(primaryLocation.localPosition, secondaryLocation.localPosition, _lerp);
                 if (rotate)
-                    transform.rotation = Quaternion.Lerp(primaryLocation.rotation, secondaryLocation.rotation, _lerp);
+                    transform.localRotation = Quaternion.Lerp(primaryLocation.localRotation, secondaryLocation.localRotation, _lerp);
                 if (scale)
                     transform.localScale = Vector3.Lerp(primaryLocation.localScale, secondaryLocation.localScale, _lerp);
             }
