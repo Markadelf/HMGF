@@ -15,7 +15,7 @@ public class Grabber : MonoBehaviour
 	
 	void Update ()
     {
-		if(isGrabObject && (!Input.GetButton("14") && !Input.GetButton("15")))
+		if(isGrabObject && ((!Input.GetButton("14") && !Input.GetButton("15"))) || Input.GetKey(KeyCode.Backspace))
         {
             grabbedObject.Release();
             isGrabObject = false;
@@ -26,7 +26,7 @@ public class Grabber : MonoBehaviour
     {
         if (isGrabObject) return;
 
-        if(Input.GetButton("14") || Input.GetButton("15"))
+        if(Input.GetButton("14") || Input.GetButton("15") || Input.GetKey(KeyCode.Space))
         {
             grabbedObject = collision.gameObject.GetComponent<Grabable>();
 
