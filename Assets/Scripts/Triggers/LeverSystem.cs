@@ -6,6 +6,7 @@ public enum LogicType
 {
     And,
     Or,
+    XOr,
     Count
 }
 
@@ -64,6 +65,9 @@ public class LeverSystem : Trigger {
                 break;
             case LogicType.Count:
                 Activate(count);
+                break; 
+            case LogicType.XOr:
+                Activate(count % 2);
                 break;
             default:
                 break;

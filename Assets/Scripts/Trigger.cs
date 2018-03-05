@@ -20,7 +20,8 @@ public class Trigger : MonoBehaviour {
     {
         for (int i = 0; i < Events.Count; i++)
         {
-            Events[i].Activate();
+            if(Events[i] != null)
+                Events[i].Activate();
         }
     }
 
@@ -28,7 +29,8 @@ public class Trigger : MonoBehaviour {
     {
         for (int i = 0; i < Events.Count; i++)
         {
-            Events[i].Activate(state);
+            if(Events[i] != null)
+                Events[i].Activate(state);
         }
     }
 
@@ -36,7 +38,8 @@ public class Trigger : MonoBehaviour {
     {
         for (int i = 0; i < Events.Count; i++)
         {
-            Events[i].Activate(state);
+            if(Events[i] != null)
+                Events[i].Activate(state);
         }
     }
 }

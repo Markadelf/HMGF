@@ -6,7 +6,7 @@ public class Lever : Trigger {
     [SerializeField] private bool _state;
     private Animator _animator;
     private List<LeverSystem> _listeners;
-
+    public float Range = 5;
 
     private void Awake()
     {
@@ -20,10 +20,12 @@ public class Lever : Trigger {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.R) && Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 2)
-        {
+    }
+
+    private void OnMouseDown()
+    {
+        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < Range)
             Flip();
-        }
     }
 
     /// <summary>
@@ -32,13 +34,16 @@ public class Lever : Trigger {
     public void Flip()
     {
         _state = !_state;
-        if (_state)
+        if (_animator != null)
         {
-            _animator.Play("Flip");
-        }
-        else
-        {
-            _animator.Play("Flip Back");
+            if (_state)
+            {
+                _animator.Play("Flip");
+            }
+            else
+            {
+                _animator.Play("Flip Back");
+            }
         }
         for (int i = 0; i < _listeners.Count; i++)
         {
