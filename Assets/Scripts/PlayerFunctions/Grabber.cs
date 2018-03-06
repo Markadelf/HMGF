@@ -15,18 +15,20 @@ public class Grabber : MonoBehaviour
 	
 	void Update ()
     {
-		if(isGrabObject && ((!Input.GetButton("14") && !Input.GetButton("15"))) || Input.GetKey(KeyCode.Backspace))
+		//if(isGrabObject && ((!Input.GetButton("14") && !Input.GetButton("15"))) || Input.GetKey(KeyCode.Backspace))
+        if(isGrabObject && Input.GetKey(KeyCode.Backspace))
         {
             grabbedObject.Release();
             isGrabObject = false;
         }
-	}
-
-    private void OnCollisionStay(Collision collision)
+    }
+    
+    private void OnTriggerStay(Collider collision)
     {
         if (isGrabObject) return;
 
-        if(Input.GetButton("14") || Input.GetButton("15") || Input.GetKey(KeyCode.Space))
+        //if(Input.GetButton("14") || Input.GetButton("15") || Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space))
         {
             grabbedObject = collision.gameObject.GetComponent<Grabable>();
 
