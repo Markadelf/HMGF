@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class WeightSensorTrigger : Trigger {
 
+    //Allows specification of player only pressure triggers
+    public bool PlayerOnly = false;
+
     //The number of objects counted as weighing on the sensor
     [SerializeField] private int weight;
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,14 +23,20 @@ public class WeightSensorTrigger : Trigger {
 
     private void OnTriggerEnter(Collider other)
     {
-        weight++;
-        Activate(weight);
+        if (!PlayerOnly || other.gameObject.tag == "Player")
+        {
+            weight++;
+            Activate(weight);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        weight--;
-        Activate(weight);
+        if (!PlayerOnly || other.gameObject.tag == "Player")
+        {
+            weight--;
+            Activate(weight);
+        }
     }
 
 }
