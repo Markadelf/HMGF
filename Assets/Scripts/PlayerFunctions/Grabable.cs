@@ -18,7 +18,7 @@ public class Grabable : MonoBehaviour
 		
 	}
 
-    public void Grab(GameObject grabber)
+    public virtual void Grab(GameObject grabber)
     {
         normalParent = transform.parent;
 
@@ -29,7 +29,7 @@ public class Grabable : MonoBehaviour
         if(ObjectRigidbody != null) { ObjectRigidbody.useGravity = false; }
     }
 
-    public void Release()
+    public virtual void Release()
     {
         transform.parent = normalParent;
 
