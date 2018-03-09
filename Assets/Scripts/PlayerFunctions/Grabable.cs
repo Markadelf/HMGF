@@ -24,12 +24,16 @@ public class Grabable : MonoBehaviour
 
         transform.parent = grabber.transform;
 
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
         if(ObjectRigidbody != null) { ObjectRigidbody.useGravity = false; }
     }
 
     public void Release()
     {
         transform.parent = normalParent;
+
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
         if (ObjectRigidbody != null) { ObjectRigidbody.useGravity = true; }
     }
