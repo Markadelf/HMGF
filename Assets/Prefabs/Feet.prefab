@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 23586061517636340}
   - component: {fileID: 54255508692724828}
   - component: {fileID: 114515736198124368}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Feet
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -194,8 +194,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4002786840267176}
   - component: {fileID: 33742760316235010}
-  - component: {fileID: 135279030789957938}
   - component: {fileID: 23601158548500228}
+  - component: {fileID: 135852004245645582}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -772,18 +772,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135279030789957938
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1844745826461316}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135616731602411108
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -792,6 +780,18 @@ SphereCollider:
   m_GameObject: {fileID: 1225120928076644}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135852004245645582
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844745826461316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
