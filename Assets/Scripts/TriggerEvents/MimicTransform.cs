@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// A script that mimics another transform
 /// </summary>
-public class MimicTransform : MonoBehaviour
+public class MimicTransform : TriggerEvent
 {
 
     //The transform to mimic
@@ -33,13 +33,27 @@ public class MimicTransform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(move)
+
+    }
+
+    public override void Activate()
+    {
+        if (move)
             transform.localPosition = track.localPosition;
-        if(rotate)
+        if (rotate)
             transform.localRotation = track.localRotation;
-        if(scale)
+        if (scale)
             transform.localScale = track.localScale;
     }
 
+    public override void Activate(bool state)
+    {
+        if (state)
+            Activate();
+    }
 
+    public override void Activate(int state)
+    {
+        Activate(state != 0);
+    }
 }

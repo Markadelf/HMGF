@@ -14,7 +14,7 @@ public class ProximityTrigger : Trigger {
 	
 	// Update is called once per frame
 	void Update () {
-		if((Target.transform.position - transform.position).sqrMagnitude < Range * Range)
+		if(Target != null && (Target.transform.position - transform.position).sqrMagnitude < Range * Range)
         {
             Activate(true);
         }

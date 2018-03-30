@@ -1,17 +1,45 @@
 fileFormatVersion: 2
-guid: 1a91982b6278ef7458eadde7f16fc30b
-timeCreated: 1521499948
+guid: 0a66c27897e11f34e9fc51fb3f4ed0e6
+timeCreated: 1522425742
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: unwrapChekcerShader5
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: lady_right_tipped
+    100000: imagePlane1
+    100002: imagePlane2
+    100004: joint1
+    100006: joint2
+    100008: joint3
+    100010: joint5
+    100012: joint6
+    100014: joint7
+    100016: //RootNode
+    100018: justice_statue
+    100020: pCube5
+    100022: scales
+    400000: imagePlane1
+    400002: imagePlane2
+    400004: joint1
+    400006: joint2
+    400008: joint3
+    400010: joint5
+    400012: joint6
+    400014: joint7
+    400016: //RootNode
+    400018: justice_statue
+    400020: pCube5
+    400022: scales
+    2100000: lambert1
+    2100002: unwrapChekcerShader
+    2300000: justice_statue
+    2300002: pCube5
+    3300000: justice_statue
+    3300002: pCube5
+    4300000: pCube5
+    4300002: justice_statue
+    4300004: scales
     9500000: //RootNode
+    13700000: scales
   externalObjects: {}
   materials:
     importMaterials: 1

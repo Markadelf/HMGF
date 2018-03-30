@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: c6a38fa8be7d4a643826967c946d1e6a
-timeCreated: 1521499949
+guid: b2ffea163b3740a458cc432186c82459
+timeCreated: 1522425979
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: unwrapChekcerShader5
+    2100000: unwrapChekcerShader
     2300000: //RootNode
     3300000: //RootNode
-    4300000: lady_neutral
+    4300000: arrow
     9500000: //RootNode
   externalObjects: {}
   materials:
