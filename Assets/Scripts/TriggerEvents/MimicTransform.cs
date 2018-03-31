@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// A script that mimics another transform
+/// A script that mimics another transform when activated
 /// </summary>
 public class MimicTransform : TriggerEvent
 {
@@ -35,7 +35,8 @@ public class MimicTransform : TriggerEvent
     {
 
     }
-
+    
+    //Copy the other transform
     public override void Activate()
     {
         if (move)

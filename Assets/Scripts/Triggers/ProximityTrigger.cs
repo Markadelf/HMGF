@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//A distance based trigger mechanism
 public class ProximityTrigger : Trigger {
 
     public GameObject Target;

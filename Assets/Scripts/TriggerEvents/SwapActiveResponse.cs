@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This event is used to seemlessly make one object active, and another inactive
+/// </summary>
 public class SwapActiveResponse : TriggerEvent {
 
     public GameObject ObjectA;

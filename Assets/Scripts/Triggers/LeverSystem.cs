@@ -10,6 +10,7 @@ public enum LogicType
     Count
 }
 
+//A logic gate based on a system of Levers
 public class LeverSystem : Trigger {
 
 

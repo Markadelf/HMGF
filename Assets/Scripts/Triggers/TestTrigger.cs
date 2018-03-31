@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A simple test trigger that activates with a keypress
+/// </summary>
 public class TestTrigger : Trigger {
 
     public KeyCode key;

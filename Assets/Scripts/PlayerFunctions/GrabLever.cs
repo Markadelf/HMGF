@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Flips the lever on this object when it is grabbed
 public class GrabLever : Grabable {
 
     //My lever refference

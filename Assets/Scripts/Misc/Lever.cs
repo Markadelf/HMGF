@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lever : Trigger {
+/// <summary>
+/// A lever that can be flipped by external scripts
+/// </summary>
+public class Lever : TriggerEvent {
     [SerializeField] private bool _state;
     private Animator _animator;
     private List<LeverSystem> _listeners;
@@ -49,7 +52,6 @@ public class Lever : Trigger {
         {
             _listeners[i].Notify(this);
         }
-        Activate(_state);
     }
 
 
@@ -74,5 +76,19 @@ public class Lever : Trigger {
         }
     }
 
-    
+    public override void Activate()
+    {
+        Flip();
+    }
+
+    public override void Activate(bool state)
+    {
+        if (_state != state)
+            Flip();
+    }
+
+    public override void Activate(int state)
+    {
+        Activate(state != 0);
+    }
 }

@@ -2,30 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Activates a Particle Effect on the object
-public class ExplosionResponse : TriggerEvent {
+/// <summary>
+/// Activates a deactive object
+/// </summary>
+public class ActivateResponse : TriggerEvent {
 
-    ParticleSystem exp;
+    public GameObject Target;
+
     public override void Activate()
     {
-        exp.Play();
+        Target.SetActive(true);
     }
 
     public override void Activate(bool state)
     {
-        if(state)
-            Activate();
+        Target.SetActive(state);
     }
 
     public override void Activate(int state)
     {
-        Activate(state != 0);
+        Activate(state != -1);
     }
 
     // Use this for initialization
     void Start () {
-        exp = GetComponent<ParticleSystem>();
-    }
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {

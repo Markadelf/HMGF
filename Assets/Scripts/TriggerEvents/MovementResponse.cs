@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// A movement response event that allows
+/// A movement response event that allows lerping between two points based on activation
 /// </summary>
 public class MovementResponse : TriggerEvent {
 
