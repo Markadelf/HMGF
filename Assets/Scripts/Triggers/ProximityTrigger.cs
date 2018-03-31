@@ -7,6 +7,7 @@ public class ProximityTrigger : Trigger {
 
     public GameObject Target;
     public float Range;
+    public bool Once = true;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,12 @@ public class ProximityTrigger : Trigger {
 		if(Target != null && (Target.transform.position - transform.position).sqrMagnitude < Range * Range)
         {
             Activate(true);
+            if (Once)
+                enabled = false;
         }
-	}
+        else
+        {
+            Activate(false);
+        }
+    }
 }

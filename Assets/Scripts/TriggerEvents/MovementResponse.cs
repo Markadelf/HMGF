@@ -42,6 +42,7 @@ public class MovementResponse : TriggerEvent {
             _state = false;
             _moving = true;
             _lerp = 0;
+            Awake();
         }
         else if (_state != state)
             Activate();
