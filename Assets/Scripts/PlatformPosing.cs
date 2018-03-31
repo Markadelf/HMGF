@@ -31,6 +31,5 @@ public class PlatformPosing : MonoBehaviour {
 				puzzleSolved = true;
 			}
 		}
-		print (puzzleSolved);
 	}
 }

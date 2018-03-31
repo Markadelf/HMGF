@@ -49,7 +49,7 @@ public class MenuOptions : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//toggling pause on and off
-		if (Input.GetAxis("Fire1") > 0 && timer > timeTillReclick) 
+		if (Input.GetAxis("Pause") > 0 && timer > timeTillReclick) 
 		{
 			
 			isPaused = !isPaused;
@@ -124,7 +124,7 @@ public class MenuOptions : MonoBehaviour {
 		}
 
 		//selecting an option
-		if (Input.GetAxis("Jump") > 0 && timer > timeTillReclick) 
+		if (Input.GetAxis("Select") > 0 && timer > timeTillReclick) 
 		{
 			if (textFields[highlightedOption - 1] == "Save") 
 			{				
