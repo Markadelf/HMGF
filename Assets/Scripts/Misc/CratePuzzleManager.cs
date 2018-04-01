@@ -60,6 +60,8 @@ public class CratePuzzleManager : MonoBehaviour {
         _extra.SetActive(false);
         state[0, 2] = false;
         state[4, 2] = false;
+        state[3, 4] = false;
+        state[0, 4] = false;
         state[2, 0] = false;
         for (int i = 0; i < 5; i++)
         {
