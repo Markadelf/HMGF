@@ -37,7 +37,7 @@ public class FloorTilePuzzle : TriggerEvent {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        
 	}
 
     public void Move(ColorTile obj)
@@ -67,24 +67,68 @@ public class FloorTilePuzzle : TriggerEvent {
         if (targets.Count > 0)
         {
             furthest = targets[0];
-            dist = Mathf.Abs(furthest.x - obj.x) + Mathf.Abs(furthest.y - obj.y);
-            if (furthest.x == 2 && obj.x == 2 || furthest.y == 2 && obj.y == 2)
-                dist += 2;
+            dist = GetDistance(obj, furthest);
             for (int i = 1; i < targets.Count; i++)
             {
-                int lDist = Mathf.Abs(targets[i].x - obj.x) + Mathf.Abs(targets[i].y - obj.y);
-                if (targets[i].x == 2 && obj.x == 2 || targets[i].y == 2 && obj.y == 2)
-                    lDist += 2;
+                int lDist = GetDistance(obj, targets[i]);
                 if (dist < lDist)
                 {
                     furthest = targets[i];
                     dist = lDist;
                 }
             }
-            x = furthest.x;
-            y = furthest.y;
+            if (dist > GetDistance(Tiles[x, y], obj) || ((x == 0 || x == 4) && (y == 0 || y == 4)))
+            {
+                x = furthest.x;
+                y = furthest.y;
+            }
         }
         Prize.GetComponent<EaseToLocation>().Move(Tiles[x, y].transform.position, 10);
+    }
+
+    public int GetDistance(ColorTile target, ColorTile other)
+    {
+        Queue<ColorTile> nodes = new Queue<ColorTile>();
+        Queue<int> cost = new Queue<int>();
+        List<ColorTile> dead = new List<ColorTile>();
+        dead.Add(null);
+        nodes.Enqueue(other);
+        cost.Enqueue(0);
+
+        while(nodes.Count > 0)
+        {
+            ColorTile node = nodes.Dequeue();
+            int val = cost.Dequeue();
+            if(node.x == target.x && node.y == target.y)
+            {
+                return val;
+            }
+
+            if (node.y < 4 && !dead.Contains(Tiles[node.x, node.y + 1]))
+            {
+                nodes.Enqueue(Tiles[node.x, node.y + 1]);
+                cost.Enqueue(val + 1);
+            }
+            if (node.y > 0 && !dead.Contains(Tiles[node.x, node.y - 1]))
+            {
+                nodes.Enqueue(Tiles[node.x, node.y - 1]);
+                cost.Enqueue(val + 1);
+            }
+            if (node.x < 4 && !dead.Contains(Tiles[node.x + 1, node.y]))
+            {
+                nodes.Enqueue(Tiles[node.x + 1, node.y]);
+                cost.Enqueue(val + 1);
+            }
+            if (node.x > 0 && !dead.Contains(Tiles[node.x - 1, node.y]))
+            {
+                nodes.Enqueue(Tiles[node.x - 1, node.y]);
+                cost.Enqueue(val + 1);
+            }
+            dead.Add(node);
+        }
+
+
+        return 0;
     }
 
     public void Connect(ColorTile obj)
