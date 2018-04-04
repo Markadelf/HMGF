@@ -9,7 +9,6 @@ using UnityEngine;
 public class ColorTile : MonoBehaviour {
 
     //Allows specification of player only pressure triggers
-    public bool PlayerOnly = false;
     public int color;
     public int x;
     public int y;
@@ -32,7 +31,7 @@ public class ColorTile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!PlayerOnly || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             weight++;
             MyManager.Move(this);

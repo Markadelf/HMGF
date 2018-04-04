@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This object handles the floor tiles used in the puzzle.
+/// </summary>
 public class FloorTilePuzzle : TriggerEvent {
 
 
@@ -15,16 +18,30 @@ public class FloorTilePuzzle : TriggerEvent {
     public override void Activate()
     {
         this.enabled = false;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (Tiles[i, j] != null) Tiles[i, j].enabled = false;
+            }
+        }
     }
 
     public override void Activate(bool state)
     {
         this.enabled = state;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (Tiles[i, j] != null) Tiles[i, j].enabled = state;
+            }
+        }
     }
 
     public override void Activate(int state)
     {
-        this.enabled = state != 0;
+        Activate(state != 0);
     }
 
 
@@ -42,6 +59,20 @@ public class FloorTilePuzzle : TriggerEvent {
 
     public void Move(ColorTile obj)
     {
+
+        //Upon solution, kill the puzzle.
+        if(obj == Tiles[x, y])
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (Tiles[i, j] != null) Tiles[i, j].enabled = false;
+                }
+            }
+            return;
+        }
+
         List<ColorTile> targets = new List<ColorTile>();
         int dist;
         ColorTile furthest;
@@ -55,7 +86,7 @@ public class FloorTilePuzzle : TriggerEvent {
         if (x > 0)
             targets.Add(Tiles[x - 1, y]);
 
-        targets.Remove(null);
+        while(targets.Remove(null));
         for (int i = 0; i < targets.Count; i++)
         {
             if(obj.color == targets[i].color)
@@ -77,7 +108,7 @@ public class FloorTilePuzzle : TriggerEvent {
                     dist = lDist;
                 }
             }
-            if (dist > GetDistance(Tiles[x, y], obj) || ((x == 0 || x == 4) && (y == 0 || y == 4)))
+            if (dist > GetDistance(Tiles[x, y], obj))
             {
                 x = furthest.x;
                 y = furthest.y;
@@ -86,6 +117,7 @@ public class FloorTilePuzzle : TriggerEvent {
         Prize.GetComponent<EaseToLocation>().Move(Tiles[x, y].transform.position, 10);
     }
 
+    //Simple dijkstra's for distance
     public int GetDistance(ColorTile target, ColorTile other)
     {
         Queue<ColorTile> nodes = new Queue<ColorTile>();
@@ -131,6 +163,7 @@ public class FloorTilePuzzle : TriggerEvent {
         return 0;
     }
 
+    //Used to set up dependancies
     public void Connect(ColorTile obj)
     {
         obj.x = (int)(obj.transform.localPosition.x / dimension) + 2;
