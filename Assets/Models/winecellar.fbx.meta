@@ -185,6 +185,18 @@ ModelImporter:
     100354: Shelves
     100356: walls
     100358: //RootNode
+    100360: group
+    100362: group1
+    100364: pCube2 1
+    100366: racks1
+    100368: shelf1 1
+    100370: shelf3
+    100372: transform1
+    100374: transform2
+    100376: transform3
+    100378: transform4
+    100380: transform5
+    100382: transform6
     400000: Barrel
     400002: Barrel1
     400004: Barrel2
@@ -365,7 +377,20 @@ ModelImporter:
     400354: Shelves
     400356: walls
     400358: //RootNode
+    400360: group
+    400362: group1
+    400364: pCube2 1
+    400366: racks1
+    400368: shelf1 1
+    400370: shelf3
+    400372: transform1
+    400374: transform2
+    400376: transform3
+    400378: transform4
+    400380: transform5
+    400382: transform6
     2100000: lambert1
+    2100002: lambert2
     2300000: bottle1
     2300002: bottle10
     2300004: bottle11
@@ -536,6 +561,8 @@ ModelImporter:
     2300334: rack92
     2300336: shelf1
     2300338: shelf2
+    2300340: racks1
+    2300342: shelf3
     3300000: bottle1
     3300002: bottle10
     3300004: bottle11
@@ -706,6 +733,8 @@ ModelImporter:
     3300334: rack92
     3300336: shelf1
     3300338: shelf2
+    3300340: racks1
+    3300342: shelf3
     4300000: flooor
     4300002: shelf1
     4300004: shelf2
@@ -876,6 +905,8 @@ ModelImporter:
     4300334: rack92
     4300336: rack85
     4300338: rack87
+    4300340: shelf3
+    4300342: racks1
     9500000: //RootNode
   externalObjects: {}
   materials:

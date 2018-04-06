@@ -5,7 +5,7 @@ using UnityEngine;
 //A proximity trigger that holds an object once it triggers.
 public class PlacementTrigger : ProximityTrigger {
     Vector3 _vel;
-    int _time = -1;
+    [SerializeField] int _time = -1;
     public int maxTime = 10;
     Quaternion _original;
 
@@ -30,6 +30,7 @@ public class PlacementTrigger : ProximityTrigger {
                 this.enabled = false;
                 Target.transform.localPosition = new Vector3();
             }
+            _time--;
         }
         else if (Target != null && (Target.transform.position - transform.position).sqrMagnitude < Range * Range)
         {
