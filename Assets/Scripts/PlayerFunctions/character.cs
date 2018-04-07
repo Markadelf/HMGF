@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class character : MonoBehaviour {
 
+
+	//use 0 for basic, 1 for bathroom, 2 for crunchy, 3 for metal, and 4 for rubble
+	[SerializeField] private int stepType;
+
+	public AudioSource[] basicSteps;
+	public AudioSource[] bathroomSteps;
+	public AudioSource[] crunchySteps;
+	public AudioSource[] metalSteps;
+	public AudioSource[] rubbleSteps;
+
     public float speed = 5;
     //The camera
     public GameObject head;
@@ -11,8 +21,9 @@ public class character : MonoBehaviour {
     public GameObject rig;
 
     // Use this for initialization
-    void Start () {
-		
+    void Start() 
+	{
+		stepType = 0;	
 	}
 	
 	// Update is called once per frame
@@ -41,6 +52,33 @@ public class character : MonoBehaviour {
                 {
                     transform.position -= direction * Time.deltaTime * speed;
                 }
+
+				//since you are moving, play a random footstep sound effect
+				//basic
+				if (stepType == 0 && basicSteps.GetLength(0) > 0)
+				{
+					PlayRandomSound(basicSteps);
+				}
+				//bathroom
+				else if (stepType == 1 && bathroomSteps.GetLength(0) > 0)
+				{
+					PlayRandomSound(bathroomSteps);
+				}
+				//crunchy
+				else if (stepType == 2 && crunchySteps.GetLength(0) > 0)
+				{
+					PlayRandomSound(crunchySteps);
+				}
+				//metal
+				else if (stepType == 3 && metalSteps.GetLength(0) > 0)
+				{
+					PlayRandomSound(metalSteps);
+				}
+				//rubble
+				else if (stepType == 4 && rubbleSteps.GetLength(0) > 0)
+				{
+					PlayRandomSound(rubbleSteps);
+				}
             }
             if (rig != null)
             {
@@ -69,6 +107,30 @@ public class character : MonoBehaviour {
 		if (Input.GetAxis("Horizontal") < 0) 
 		{
 			transform.Rotate(-transform.up * 70.0f * Time.deltaTime);
+		}
+	}
+
+
+	public void SetStepType(int typeNum)
+	{
+		stepType = typeNum;
+	}
+
+	public void PlayRandomSound(AudioSource[] jukebox)
+	{
+		bool foundPlayingSound = false;
+		for (int i = 0; i < jukebox.GetLength(0); i++)
+		{
+			if (jukebox[i].isPlaying)
+			{
+				foundPlayingSound = true;
+				break;
+			}
+		}
+		if (!foundPlayingSound)
+		{
+			int rand = (int)Mathf.Floor(Random.value * jukebox.GetLength(0));
+			jukebox[rand].Play();
 		}
 	}
 }
