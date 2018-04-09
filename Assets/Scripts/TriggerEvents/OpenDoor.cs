@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour {
+public class OpenDoor : Grabable {
 
 
 	private float timeTillReclick;
@@ -74,4 +74,13 @@ public class OpenDoor : MonoBehaviour {
 	{
 
 	}
+
+    public override void Grab(GameObject grabber)
+    {
+        doorClosed = !doorClosed;
+    }
+
+    public override void Release()
+    {
+    }
 }

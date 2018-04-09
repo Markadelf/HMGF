@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircuitBreakerPuzzle : MonoBehaviour {
+public class CircuitBreakerPuzzle : Grabable {
 
 	public Camera myCamera;
 	private float timer;
@@ -47,4 +47,24 @@ public class CircuitBreakerPuzzle : MonoBehaviour {
 
 		timer++;
 	}
+
+    public override void Grab(GameObject grabber)
+    {
+        for (int i = 0; i < allSwitchedSwitches.GetLength(0); i++)
+        {
+            allSwitchedSwitches[i].GetComponent<StoreNumTicks>().numTicks++;
+            if (allSwitchedSwitches[i].GetComponent<StoreNumTicks>().numTicks % 2 == 1)
+            {
+                allSwitchedSwitches[i].GetComponent<MeshRenderer>().material = onMaterial;
+            }
+            else
+            {
+                allSwitchedSwitches[i].GetComponent<MeshRenderer>().material = offMaterial;
+            }
+        }
+    }
+
+    public override void Release()
+    {
+    }
 }

@@ -49,7 +49,6 @@ public class FloorTilePuzzle : TriggerEvent {
     void Start () {
         x = (int)(Prize.transform.localPosition.x / dimension) + 2;
         y = (int)(Prize.transform.localPosition.z / dimension) + 2;
-        Tiles[2, 2] = null;
     }
 	
 	// Update is called once per frame
@@ -67,7 +66,7 @@ public class FloorTilePuzzle : TriggerEvent {
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    if (Tiles[i, j] != null) Tiles[i, j].enabled = false;
+                    if (Tiles[i, j] != null) Tiles[i, j].color = 0;
                 }
             }
             return;
