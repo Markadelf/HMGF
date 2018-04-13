@@ -74,6 +74,7 @@ public class character : MonoBehaviour {
                 forward.Normalize();
 
                 transform.position += forward * Time.deltaTime * speed * LeftController.GetAxis(thumbStick).y;
+                PlaySounds();
             }
 
             if (Mathf.Abs(LeftController.GetAxis(thumbStick).x) > .1f)
@@ -84,6 +85,7 @@ public class character : MonoBehaviour {
                 right.Normalize();
 
                 transform.position += right * Time.deltaTime * speed * LeftController.GetAxis(thumbStick).x;
+                PlaySounds();
             }
 
             
@@ -112,6 +114,7 @@ public class character : MonoBehaviour {
             if (rig != null)
             {
                 Vector3 change = (transform.position - head.transform.position);
+                change.y = 0;
                 rig.transform.position += (change);
             }
         }
@@ -241,6 +244,36 @@ public class character : MonoBehaviour {
 	{
 		stepType = typeNum;
 	}
+
+    public void PlaySounds()
+    {
+        //since you are moving, play a random footstep sound effect
+        //basic
+        if (stepType == 0 && basicSteps.GetLength(0) > 0)
+        {
+            PlayRandomSound(basicSteps);
+        }
+        //bathroom
+        else if (stepType == 1 && bathroomSteps.GetLength(0) > 0)
+        {
+            PlayRandomSound(bathroomSteps);
+        }
+        //crunchy
+        else if (stepType == 2 && crunchySteps.GetLength(0) > 0)
+        {
+            PlayRandomSound(crunchySteps);
+        }
+        //metal
+        else if (stepType == 3 && metalSteps.GetLength(0) > 0)
+        {
+            PlayRandomSound(metalSteps);
+        }
+        //rubble
+        else if (stepType == 4 && rubbleSteps.GetLength(0) > 0)
+        {
+            PlayRandomSound(rubbleSteps);
+        }
+    }
 
 	public void PlayRandomSound(AudioSource[] jukebox)
 	{
