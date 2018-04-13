@@ -20,19 +20,106 @@ public class character : MonoBehaviour {
     //The rig
     public GameObject rig;
 
+    private SteamVR_TrackedObject leftControllerTrackedObject;
+    private SteamVR_TrackedObject rightControllerTrackedObject;
+
+    private Valve.VR.EVRButtonId thumbStick = Valve.VR.EVRButtonId.k_EButton_Axis2;
+    private Valve.VR.EVRButtonId thumbPad = Valve.VR.EVRButtonId.k_EButton_Axis0;
+    private Valve.VR.EVRButtonId trigger = Valve.VR.EVRButtonId.k_EButton_Axis1;
+
+    private float swivelCounter = 0;
+    private bool swivelRight = true;
+
+    private SteamVR_Controller.Device LeftController
+    {
+        get {
+            if(leftControllerTrackedObject == null)
+            {
+                leftControllerTrackedObject = GameObject.Find("Controller (left)").GetComponent<SteamVR_TrackedObject>();
+            }
+            return SteamVR_Controller.Input((int)leftControllerTrackedObject.index);
+        }
+    }
+    private SteamVR_Controller.Device RightController
+    {
+        get
+        {
+            if (rightControllerTrackedObject == null)
+            {
+                rightControllerTrackedObject = GameObject.Find("Controller (right)").GetComponent<SteamVR_TrackedObject>();
+            }
+            return SteamVR_Controller.Input((int)rightControllerTrackedObject.index);
+        }
+    }
+
     // Use this for initialization
     void Start() 
 	{
-		stepType = 0;	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //Left Hand  X = Axis 1 y = Axis 2
-        //Right Hand x = Axis 4 y = Axis 5
+		stepType = 0;
+    }
 
-        //Will test and implement!
-        float thrust = Input.GetAxis("Vertical");
+    // Update is called once per frame
+    void Update ()
+    {
+        Swivel();
+
+        if (head != null)
+        {
+            //Movement
+            if (Mathf.Abs(LeftController.GetAxis(thumbStick).y) > .1f)
+            {
+                Vector3 forward = head.transform.forward;
+
+                forward.y = 0;
+                forward.Normalize();
+
+                transform.position += forward * Time.deltaTime * speed * LeftController.GetAxis(thumbStick).y;
+            }
+
+            if (Mathf.Abs(LeftController.GetAxis(thumbStick).x) > .1f)
+            { 
+                Vector3 right = head.transform.right;
+
+                right.y = 0;
+                right.Normalize();
+
+                transform.position += right * Time.deltaTime * speed * LeftController.GetAxis(thumbStick).x;
+            }
+
+            
+            //View Movement
+            if (Mathf.Abs(RightController.GetAxis(thumbStick).x) > .1f)
+            {
+                transform.Rotate(transform.up, RightController.GetAxis(thumbStick).x * 70.0f * Time.deltaTime);
+            }
+            
+            if (LeftController.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))
+            {
+                //transform.Rotate(transform.up, -90);
+                Swivel(-90);
+                    //Haptics no work!
+                //LeftController.TriggerHapticPulse(2000, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
+            }
+
+            if (RightController.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))
+            {
+                //transform.Rotate(transform.up, 90);
+                Swivel(90);
+                    //Haptics no work!
+                //RightController.TriggerHapticPulse(2000, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
+            }
+
+            if (rig != null)
+            {
+                Vector3 change = (transform.position - head.transform.position);
+                rig.transform.position += (change);
+            }
+        }
+
+
+
+
+        /*    float thrust = Input.GetAxis("Vertical");
         if (head != null)
         {
             if (thrust != 0)
@@ -107,11 +194,50 @@ public class character : MonoBehaviour {
 		if (Input.GetAxis("Horizontal") < 0) 
 		{
 			transform.Rotate(-transform.up * 70.0f * Time.deltaTime);
-		}
+		}*/
 	}
 
 
-	public void SetStepType(int typeNum)
+    private void Swivel()
+    {
+        if(swivelCounter > 0)
+        {
+            float rotationAmount = 360 * Time.deltaTime;
+
+            swivelCounter -= rotationAmount;
+            if (swivelCounter > 0)
+            {
+                transform.Rotate(transform.up,
+                    swivelRight ? rotationAmount : -rotationAmount);
+            }
+            else
+            {
+                transform.Rotate(transform.up,
+                    swivelRight ? rotationAmount + swivelCounter : -rotationAmount - swivelCounter);
+            }
+        }
+    }
+    private void Swivel(float degrees)
+    {
+        if(swivelCounter < 0)
+        {
+            swivelCounter = 0;
+        }
+        if(degrees > 0)
+        {
+            if (!swivelRight) swivelCounter = 0;
+            swivelRight = true;
+            swivelCounter += degrees;
+        }
+        else
+        {
+            if (swivelRight) swivelCounter = 0;
+            swivelRight = false;
+            swivelCounter -= degrees;
+        }
+    }
+
+    public void SetStepType(int typeNum)
 	{
 		stepType = typeNum;
 	}
