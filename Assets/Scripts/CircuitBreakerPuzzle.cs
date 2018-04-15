@@ -62,6 +62,8 @@ public class CircuitBreakerPuzzle : Grabable {
                 allSwitchedSwitches[i].GetComponent<MeshRenderer>().material = offMaterial;
             }
         }
+
+		timer = 0.0f;
     }
 
     public override void Release()

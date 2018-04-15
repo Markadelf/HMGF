@@ -153,7 +153,5 @@ public class PoemOrdering : MonoBehaviour {
 		{
 			solved = true;
 		}
-
-		print(solved);
 	}
 }
