@@ -28,7 +28,7 @@ public class BottleClank : MonoBehaviour {
 			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 10.0f);
 			if (didHit && raycastInfo.collider.gameObject == gameObject)
 			{
-				print("Clicked!");
+				//print("Clicked!");
 				BottlePuzzleManager.HitBottle(whichBottle);
 				mySound.Play();
 			}

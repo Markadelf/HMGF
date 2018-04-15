@@ -23,11 +23,14 @@ public class CircuitBreakerPuzzle : Grabable {
 	{
 		if (Input.GetAxis("Interact") > 0 && timer > timeTillReclick)
 		{
+			//print("Clicked!");
 			Ray mouseToObj = myCamera.ScreenPointToRay(Input.mousePosition);
 			RaycastHit raycastInfo;
-			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 10.0f);
+			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 100.0f);
+			print(raycastInfo.collider.gameObject);
 			if (didHit && raycastInfo.collider.gameObject == gameObject)
 			{
+				print("Clicked!");
 				for (int i = 0; i < allSwitchedSwitches.GetLength(0); i++)
 				{
 					allSwitchedSwitches[i].GetComponent<StoreNumTicks>().numTicks++;

@@ -42,12 +42,12 @@ public class BottlePuzzleManager : MonoBehaviour {
 			solved = true;
 		}
 
-		print(solved);
+		//print(solved);
 	}
 
 	public static void HitBottle(int bottleNum)
 	{
-		print("Hit!");
+		//print("Hit!");
 		for (int i = 0; i < bottlesHit.GetLength(0); i++)
 		{
 			if (i != bottlesHit.GetLength(0) - 1)
