@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4767955407437344}
   - component: {fileID: 33313369398434444}
-  - component: {fileID: 65958340871403778}
   - component: {fileID: 23182229201261996}
   - component: {fileID: 114680279594240724}
+  - component: {fileID: 135089462781590914}
   m_Layer: 10
   m_Name: Marble
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636965367082974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.999999, y: 1.9999921, z: 8.000004}
+  m_LocalPosition: {x: 4.052617, y: -2.9207463, z: 0.6444192}
   m_LocalScale: {x: 4.0000033, y: 4.000003, z: 4.000003}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,18 +84,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636965367082974}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65958340871403778
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636965367082974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114680279594240724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,3 +95,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9ea2374b2250a4cae958cdfcdbd355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135089462781590914
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636965367082974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
