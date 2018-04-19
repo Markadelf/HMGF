@@ -7,6 +7,13 @@ TagManager:
   - Door
   - KeyItem
   - PoemPiece
+  - DoorOpen
+  - DoorClose
+  - DoorLocked
+  - ManorMusic
+  - InnerRoomsMusic
+  - PoolMusic
+  - FoodMusic
   layers:
   - Default
   - TransparentFX
