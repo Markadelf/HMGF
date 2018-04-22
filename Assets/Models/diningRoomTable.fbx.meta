@@ -19,8 +19,12 @@ ModelImporter:
     400010: transform2
     2100000: lambert1
     2100002: defaultPolygonShader
+    2100004: tablelegs
+    2100006: tabletop1
     2300000: pCube3
+    2300002: //RootNode
     3300000: pCube3
+    3300002: //RootNode
     4300000: pCube3
     9500000: //RootNode
   externalObjects: {}

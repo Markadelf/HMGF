@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A template for the trigger system.
+/// </summary>
 public class Trigger : MonoBehaviour {
 
     public List<TriggerEvent> Events;

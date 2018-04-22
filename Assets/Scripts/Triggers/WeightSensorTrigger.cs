@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// A pressure plate sensor
+/// </summary>
 public class WeightSensorTrigger : Trigger {
 
     //Allows specification of player only pressure triggers

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// A movement response event that allows
+/// A movement response event that allows lerping between two points based on activation
 /// </summary>
 public class MovementResponse : TriggerEvent {
 
@@ -21,29 +21,40 @@ public class MovementResponse : TriggerEvent {
     public bool move = true;
     public bool rotate = true;
     public bool scale = true;
+    public bool oneWay = false;
 
 
     public override void Activate()
     {
         _state = !_state;
         _moving = true;
+        if(oneWay && !_state)
+        {
+            _lerp = 0;
+            _state = true;
+        }
     }
 
     public override void Activate(bool state)
     {
-        _state = state;
-        _moving = true;
+        if (!state && oneWay)
+        {
+            _state = false;
+            _moving = true;
+            _lerp = 0;
+            Awake();
+        }
+        else if (_state != state)
+            Activate();
     }
 
     public override void Activate(int state)
     {
-        _state = state != 0;
-        _moving = true;
+        Activate(state != 0);
     }
 
     // Use this for initialization
     void Start () {
-        period = 1;
 	}
 
     private void Awake()

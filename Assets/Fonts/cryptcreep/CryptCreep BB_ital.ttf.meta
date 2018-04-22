@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: e05d35509c141384d87f225d358faaa0
+timeCreated: 1523824346
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CryptCreep BB
+  fontNames:
+  - CryptCreep BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7d4fa88cd9582a34b829d7b0f8c1625e, type: 3}
+  - {fileID: 12800000, guid: 6e84b57d3f149424a88d594bf85523a0, type: 3}
+  - {fileID: 12800000, guid: cad518adafb7a5c40b4726650442e828, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
