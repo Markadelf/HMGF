@@ -14,7 +14,7 @@ public class BottleClank : MonoBehaviour {
 	void Start() 
 	{
 		timer = 0.0f;
-		timeTillReclick = 30.0f;
+		timeTillReclick = 0.3f;
 		mySound = gameObject.GetComponent<AudioSource>();
 	}
 	
@@ -25,10 +25,9 @@ public class BottleClank : MonoBehaviour {
 		{
 			Ray mouseToObj = myCamera.ScreenPointToRay(Input.mousePosition);
 			RaycastHit raycastInfo;
-			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 10.0f);
+			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 100.0f);
 			if (didHit && raycastInfo.collider.gameObject == gameObject)
 			{
-				//print("Clicked!");
 				BottlePuzzleManager.HitBottle(whichBottle);
 				mySound.Play();
 			}
@@ -36,6 +35,6 @@ public class BottleClank : MonoBehaviour {
 			timer = 0.0f;
 		}
 
-		timer++;
+		timer += Time.deltaTime;
 	}
 }

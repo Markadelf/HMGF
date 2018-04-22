@@ -53,9 +53,6 @@ public class CrossFadeMusic : MonoBehaviour {
 			}
 			song1.volume = 1.0f - song2.volume;
 		}
-
-		print(song1.volume);
-		print(song2.volume);
 	}
 
 	void OnTriggerEnter(Collider other)

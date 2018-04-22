@@ -5,6 +5,8 @@ using UnityEngine;
 public class CircuitBreakerPuzzle : Grabable {
 
 	public Camera myCamera;
+	public AudioSource flipOnSound;
+	public AudioSource flipOffSound;
 	private float timer;
 	private float timeTillReclick;
 	[SerializeField] private GameObject[] allSwitchedSwitches;
@@ -15,7 +17,7 @@ public class CircuitBreakerPuzzle : Grabable {
 	void Start() 
 	{
 		timer = 0.0f;
-		timeTillReclick = 30.0f;
+		timeTillReclick = 0.3f;
 	}
 	
 	// Update is called once per frame
@@ -23,14 +25,11 @@ public class CircuitBreakerPuzzle : Grabable {
 	{
 		if (Input.GetAxis("Interact") > 0 && timer > timeTillReclick)
 		{
-			//print("Clicked!");
 			Ray mouseToObj = myCamera.ScreenPointToRay(Input.mousePosition);
 			RaycastHit raycastInfo;
 			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 100.0f);
-			print(raycastInfo.collider.gameObject);
 			if (didHit && raycastInfo.collider.gameObject == gameObject)
 			{
-				print("Clicked!");
 				for (int i = 0; i < allSwitchedSwitches.GetLength(0); i++)
 				{
 					allSwitchedSwitches[i].GetComponent<StoreNumTicks>().numTicks++;
@@ -43,12 +42,23 @@ public class CircuitBreakerPuzzle : Grabable {
 						allSwitchedSwitches[i].GetComponent<MeshRenderer>().material = offMaterial;
 					}
 				}
+
+				gameObject.GetComponent<StoreNumTicks>().numTicks++;
+
+				if (gameObject.GetComponent<StoreNumTicks>().numTicks % 2 == 0)
+				{
+					flipOnSound.Play();
+				}
+				else
+				{
+					flipOffSound.Play();
+				}
 			}
 
 			timer = 0.0f;
 		}
 
-		timer++;
+		timer += Time.deltaTime;
 	}
 
     public override void Grab(GameObject grabber)
