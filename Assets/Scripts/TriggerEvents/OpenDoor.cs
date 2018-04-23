@@ -57,11 +57,11 @@ public class OpenDoor : Grabable {
 		{
 			if (doorClosed && currYRot < startYRot)
 			{
-				currYRot++;
+				currYRot += Time.deltaTime * 50.0f;
 			}
 			else if (!doorClosed && currYRot > startYRot - 90.0f)
 			{
-				currYRot--;
+				currYRot -= Time.deltaTime * 50.0f;
 			}
 			//when the door shuts, play the close sound effect; the door must be opened to play it again
 			else if (doorClosed && currYRot >= startYRot && !doorClosedSoundPlayed)
@@ -75,11 +75,11 @@ public class OpenDoor : Grabable {
 		{
 			if (doorClosed && currYRot > startYRot)
 			{
-				currYRot--;
+				currYRot -= Time.deltaTime * 50.0f;
 			} 
 			else if (!doorClosed && currYRot < startYRot + 90.0f)
 			{
-				currYRot++;
+				currYRot += Time.deltaTime * 50.0f;
 			}
 			//when the door shuts, play the close sound effect; the door must be opened to play it again
 			else if (doorClosed && currYRot <= startYRot && !doorClosedSoundPlayed)

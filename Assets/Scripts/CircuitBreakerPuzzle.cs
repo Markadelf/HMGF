@@ -15,7 +15,7 @@ public class CircuitBreakerPuzzle : Grabable {
 	void Start() 
 	{
 		timer = 0.0f;
-		timeTillReclick = 30.0f;
+		timeTillReclick = 0.3f;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +30,6 @@ public class CircuitBreakerPuzzle : Grabable {
 			print(raycastInfo.collider.gameObject);
 			if (didHit && raycastInfo.collider.gameObject == gameObject)
 			{
-				print("Clicked!");
 				for (int i = 0; i < allSwitchedSwitches.GetLength(0); i++)
 				{
 					allSwitchedSwitches[i].GetComponent<StoreNumTicks>().numTicks++;
@@ -48,7 +47,7 @@ public class CircuitBreakerPuzzle : Grabable {
 			timer = 0.0f;
 		}
 
-		timer++;
+		timer += Time.deltaTime;
 	}
 
     public override void Grab(GameObject grabber)
