@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grabable : MonoBehaviour
+public class Grabable : EaseToLocation
 {
     Transform normalParent;
     Rigidbody ObjectRigidbody;
@@ -27,6 +27,7 @@ public class Grabable : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         if(ObjectRigidbody != null) { ObjectRigidbody.useGravity = false; }
+        Move(grabber.transform.position, 10);
     }
 
     public virtual void Release()

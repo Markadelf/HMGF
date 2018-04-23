@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottlePuzzleManager : MonoBehaviour {
+public class BottlePuzzleManager : Trigger {
 
 
-	public bool solved;
 	public static int[] bottlesHit;
 	public static int[] goal;
 
@@ -18,8 +17,6 @@ public class BottlePuzzleManager : MonoBehaviour {
 		goal[1] = 3;
 		goal[2] = 2;
 		goal[3] = 4;
-		solved = false;
-		print(solved);
 	}
 	
 	// Update is called once per frame
@@ -39,11 +36,10 @@ public class BottlePuzzleManager : MonoBehaviour {
 		}
 		if (total >= goal.GetLength(0))
 		{
-			solved = true;
-		}
+            Activate(true);
+        }
 
-		//print(solved);
-	}
+    }
 
 	public static void HitBottle(int bottleNum)
 	{

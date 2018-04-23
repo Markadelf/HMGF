@@ -74,7 +74,6 @@ GameObject:
   - component: {fileID: 23022371910062016}
   - component: {fileID: 33605389740536572}
   - component: {fileID: 114543851876868830}
-  - component: {fileID: 114238114765440312}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Untagged
@@ -634,27 +633,6 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
---- !u!114 &114238114765440312
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1219097531454068}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7701d85467291524b8fe0f147b36472b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stepType: 0
-  basicSteps: []
-  bathroomSteps: []
-  crunchySteps: []
-  metalSteps: []
-  rubbleSteps: []
-  usingVRHeadset: 0
-  speed: 5
-  head: {fileID: 1647843692265272}
-  rig: {fileID: 0}
 --- !u!114 &114358524825039888
 MonoBehaviour:
   m_ObjectHideFlags: 1

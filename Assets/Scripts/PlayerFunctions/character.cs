@@ -36,7 +36,11 @@ public class character : MonoBehaviour {
         get {
             if(leftControllerTrackedObject == null)
             {
-                leftControllerTrackedObject = GameObject.Find("Controller (left)").GetComponent<SteamVR_TrackedObject>();
+                var left = GameObject.Find("Controller (left)");
+                if (left != null)
+                {
+                    leftControllerTrackedObject = left.GetComponent<SteamVR_TrackedObject>();
+                }
             }
             return SteamVR_Controller.Input((int)leftControllerTrackedObject.index);
         }
@@ -47,7 +51,11 @@ public class character : MonoBehaviour {
         {
             if (rightControllerTrackedObject == null)
             {
-                rightControllerTrackedObject = GameObject.Find("Controller (right)").GetComponent<SteamVR_TrackedObject>();
+                var right = GameObject.Find("Controller (right)");
+                if (right != null)
+                {
+                    rightControllerTrackedObject = right.GetComponent<SteamVR_TrackedObject>();
+                }
             }
             return SteamVR_Controller.Input((int)rightControllerTrackedObject.index);
         }

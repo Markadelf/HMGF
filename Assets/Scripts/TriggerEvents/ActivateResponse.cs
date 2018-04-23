@@ -16,7 +16,8 @@ public class ActivateResponse : TriggerEvent {
 
     public override void Activate(bool state)
     {
-        Target.SetActive(state);
+        if(Target != null)
+            Target.SetActive(state);
     }
 
     public override void Activate(int state)

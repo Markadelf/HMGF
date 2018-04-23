@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoemOrdering : MonoBehaviour {
+public class PoemOrdering : Trigger {
 
 	public static bool solved;
 	public static int numPieces;
@@ -152,6 +152,7 @@ public class PoemOrdering : MonoBehaviour {
 		if (inOrderX && inOrderZ && linearAlignment)
 		{
 			solved = true;
+            Activate(solved);
 		}
 	}
 }
