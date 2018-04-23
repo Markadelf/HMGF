@@ -29,6 +29,7 @@ ModelImporter:
     400020: switchBoardCover
     2100000: unwrapChekcerShader
     2100002: lambert1
+    2100004: lambert2
     2300000: Switch1
     2300002: Switch2
     2300004: Switch3
