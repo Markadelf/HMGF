@@ -15,7 +15,7 @@ public class character : MonoBehaviour {
 	public AudioSource[] rubbleSteps;
 	public bool usingVRHeadset;
 
-    public float speed = 5;
+    public float speed = 3.0f;
     //The camera
     public GameObject head;
     //The rig
@@ -64,6 +64,7 @@ public class character : MonoBehaviour {
     // Use this for initialization
     void Start() 
 	{
+        Time.maximumDeltaTime = .1f;
 		stepType = 0;
     }
 
@@ -108,16 +109,24 @@ public class character : MonoBehaviour {
             
 				if (LeftController.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))
 				{
-					//transform.Rotate(transform.up, -90);
-					Swivel(-90);
-					//Haptics no work!
-					//LeftController.TriggerHapticPulse(2000, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
-				}
+                    if (rig.transform.localPosition.y >= -2.5f)
+                    {
+                        rig.transform.localPosition -= new Vector3(0.0f, 0.5f, 0.0f);
+                    }
+                    //transform.Rotate(transform.up, -90);
+                    //Swivel(-90);
+                    //Haptics no work!
+                    //LeftController.TriggerHapticPulse(2000, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
+                }
 
 				if (RightController.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))
 				{
+                    if (rig.transform.localPosition.y <= 2.5f)
+                    {
+                        rig.transform.localPosition += new Vector3(0.0f, 0.5f, 0.0f);
+                    }
 					//transform.Rotate(transform.up, 90);
-					Swivel(90);
+					//Swivel(90);
 					//Haptics no work!
 					//RightController.TriggerHapticPulse(2000, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
 				}

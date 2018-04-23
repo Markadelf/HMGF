@@ -13,10 +13,6 @@ public class Grabable : EaseToLocation
 	}
 	
 	
-	void Update ()
-    {
-		
-	}
 
     public virtual void Grab(GameObject grabber)
     {
