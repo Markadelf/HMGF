@@ -15,8 +15,8 @@ public class CrossFadeMusic : MonoBehaviour {
 	void Start() 
 	{
 		song1 = GameObject.FindGameObjectWithTag("ManorMusic").GetComponent<AudioSource>();
-		currentSong = song1;
-        song2 = song1;
+        song2 = GameObject.FindGameObjectWithTag("InnerRoomsMusic").GetComponent<AudioSource>();
+        currentSong = song1;
 		goingToSong1 = true;
 		song1.Play();
 	}

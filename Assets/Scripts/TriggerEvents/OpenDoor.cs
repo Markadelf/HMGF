@@ -8,7 +8,7 @@ public class OpenDoor : Grabable {
 	private float timeTillReclick;
 	private float timer;
 	//determines if the door is locked
-	[SerializeField] private bool isLocked;
+	public bool isLocked;
 	//determines if the door is currently closed
 	private bool doorClosed;
 	private bool doorClosedSoundPlayed;
@@ -33,25 +33,29 @@ public class OpenDoor : Grabable {
 	// Update is called once per frame
 	void Update() 
 	{
-		if (Vector3.Distance(player.transform.position, transform.position) < 4.0f && Input.GetAxis("Interact") > 0 && timer > timeTillReclick && !isLocked)
+		if (Vector3.Distance(player.transform.position, transform.position) < 4.0f && Input.GetAxis("Interact") > 0 && timer > timeTillReclick)
 		{
-			doorClosed = !doorClosed;
-			timer = 0.0f;
+            if (!isLocked)
+            {
+                doorClosed = !doorClosed;
+                timer = 0.0f;
 
-			//if opening the door, play the open door sound, and make available the close door sound
-			if (!doorClosed)
-			{
-				AudioSource doorOpenSound = GameObject.FindGameObjectWithTag("DoorOpen").GetComponent<AudioSource>();
-				doorOpenSound.Play();
-				doorClosedSoundPlayed = false;
-			}
-		}
-		//if a player tries to open the door when it is locked, play the sound effect
-		else if (Vector3.Distance(player.transform.position, transform.position) < 4.0f && Input.GetAxis("Interact") > 0 && timer > timeTillReclick && isLocked)
-		{
-			AudioSource doorLockedSound = GameObject.FindGameObjectWithTag("DoorLocked").GetComponent<AudioSource>();
-			doorLockedSound.Play();
-		}
+                //if opening the door, play the open door sound, and make available the close door sound
+                if (!doorClosed)
+                {
+                    AudioSource doorOpenSound = GameObject.FindGameObjectWithTag("DoorOpen").GetComponent<AudioSource>();
+                    doorOpenSound.Play();
+                    doorClosedSoundPlayed = false;
+                }
+            }
+            //if a player tries to open the door when it is locked, play the sound effect
+            else
+            {
+                AudioSource doorLockedSound = GameObject.FindGameObjectWithTag("DoorLocked").GetComponent<AudioSource>();
+                doorLockedSound.Play();
+            }
+        }
+		
 
 		if (!clockwise)
 		{
@@ -107,7 +111,25 @@ public class OpenDoor : Grabable {
 
     public override void Grab(GameObject grabber)
     {
-        doorClosed = !doorClosed;
+        if (!isLocked)
+        {
+            doorClosed = !doorClosed;
+            timer = 0.0f;
+
+            //if opening the door, play the open door sound, and make available the close door sound
+            if (!doorClosed)
+            {
+                AudioSource doorOpenSound = GameObject.FindGameObjectWithTag("DoorOpen").GetComponent<AudioSource>();
+                doorOpenSound.Play();
+                doorClosedSoundPlayed = false;
+            }
+        }
+        //if a player tries to open the door when it is locked, play the sound effect
+        else
+        {
+            AudioSource doorLockedSound = GameObject.FindGameObjectWithTag("DoorLocked").GetComponent<AudioSource>();
+            doorLockedSound.Play();
+        }
     }
 
     public override void Release()

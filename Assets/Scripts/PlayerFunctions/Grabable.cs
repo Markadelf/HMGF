@@ -16,6 +16,8 @@ public class Grabable : EaseToLocation
 
     public virtual void Grab(GameObject grabber)
     {
+        if (!enabled)
+            return;
         normalParent = transform.parent;
 
         transform.parent = grabber.transform;
@@ -28,6 +30,8 @@ public class Grabable : EaseToLocation
 
     public virtual void Release()
     {
+        if (!enabled)
+            return;
         transform.parent = normalParent;
 
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
