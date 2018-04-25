@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 52deb52a9c851ab4683937f0c79b578c
+timeCreated: 1524688941
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: AnatomyHandHumanMale:joint1
+    100002: AnatomyHandHumanMale:joint10
+    100004: AnatomyHandHumanMale:joint11
+    100006: AnatomyHandHumanMale:joint12
+    100008: AnatomyHandHumanMale:joint13
+    100010: AnatomyHandHumanMale:joint14
+    100012: AnatomyHandHumanMale:joint15
+    100014: AnatomyHandHumanMale:joint16
+    100016: AnatomyHandHumanMale:joint17
+    100018: AnatomyHandHumanMale:joint18
+    100020: AnatomyHandHumanMale:joint19
+    100022: AnatomyHandHumanMale:joint2
+    100024: AnatomyHandHumanMale:joint20
+    100026: AnatomyHandHumanMale:joint21
+    100028: AnatomyHandHumanMale:joint22
+    100030: AnatomyHandHumanMale:joint3
+    100032: AnatomyHandHumanMale:joint4
+    100034: AnatomyHandHumanMale:joint5
+    100036: AnatomyHandHumanMale:joint6
+    100038: AnatomyHandHumanMale:joint7
+    100040: AnatomyHandHumanMale:joint8
+    100042: AnatomyHandHumanMale:joint9
+    100044: //RootNode
+    400000: AnatomyHandHumanMale:joint1
+    400002: AnatomyHandHumanMale:joint10
+    400004: AnatomyHandHumanMale:joint11
+    400006: AnatomyHandHumanMale:joint12
+    400008: AnatomyHandHumanMale:joint13
+    400010: AnatomyHandHumanMale:joint14
+    400012: AnatomyHandHumanMale:joint15
+    400014: AnatomyHandHumanMale:joint16
+    400016: AnatomyHandHumanMale:joint17
+    400018: AnatomyHandHumanMale:joint18
+    400020: AnatomyHandHumanMale:joint19
+    400022: AnatomyHandHumanMale:joint2
+    400024: AnatomyHandHumanMale:joint20
+    400026: AnatomyHandHumanMale:joint21
+    400028: AnatomyHandHumanMale:joint22
+    400030: AnatomyHandHumanMale:joint3
+    400032: AnatomyHandHumanMale:joint4
+    400034: AnatomyHandHumanMale:joint5
+    400036: AnatomyHandHumanMale:joint6
+    400038: AnatomyHandHumanMale:joint7
+    400040: AnatomyHandHumanMale:joint8
+    400042: AnatomyHandHumanMale:joint9
+    400044: //RootNode
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
