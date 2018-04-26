@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottleClank : MonoBehaviour {
+public class BottleClank : Grabable {
 
 	public Camera myCamera;
 	private float timer;
@@ -15,19 +15,20 @@ public class BottleClank : MonoBehaviour {
 	{
 		timer = 0.0f;
 		timeTillReclick = 0.3f;
-		mySound = gameObject.GetComponent<AudioSource>();
+		mySound = gameObject.GetComponentInChildren<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update() 
 	{
-		if (Input.GetAxis("Interact") > 0 && timer > timeTillReclick)
+		if (Input.GetAxis("Interact") > 0 && timer > timeTillReclick && !character.VR)
 		{
 			Ray mouseToObj = myCamera.ScreenPointToRay(Input.mousePosition);
 			RaycastHit raycastInfo;
 			bool didHit = Physics.Raycast(mouseToObj, out raycastInfo, 100.0f);
 			if (didHit && raycastInfo.collider.gameObject == gameObject)
 			{
+                print("Bap!");
 				BottlePuzzleManager.HitBottle(whichBottle);
 				mySound.Play();
 			}
@@ -37,4 +38,15 @@ public class BottleClank : MonoBehaviour {
 
 		timer += Time.deltaTime;
 	}
+
+    public override void Grab(GameObject grabber)
+    {
+        BottlePuzzleManager.HitBottle(whichBottle);
+        mySound.Play();
+    }
+
+    public override void Release()
+    {
+
+    }
 }

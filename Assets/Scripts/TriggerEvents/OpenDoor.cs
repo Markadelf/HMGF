@@ -109,6 +109,11 @@ public class OpenDoor : Grabable {
 
 	}
 
+    public void UnlockDoor()
+    {
+        isLocked = false;
+    }
+
     public override void Grab(GameObject grabber)
     {
         if (!isLocked)

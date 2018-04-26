@@ -30,6 +30,8 @@ public class CratePuzzleManager : MonoBehaviour {
     public GameObject Loose;
     public GameObject SensorPrefab;
 
+    [SerializeField] private AudioSource mySound;
+
     public int Period = 10;
 
 
@@ -111,6 +113,7 @@ public class CratePuzzleManager : MonoBehaviour {
 
     public bool Push(bool value, Side side, int pos)
     {
+        mySound.Play();
         bool ret = false;
         GameObject extra = null;
         _extra.transform.position = Loose.transform.position;

@@ -6,7 +6,8 @@ public class BottlePuzzleManager : Trigger {
 
 
 	public static int[] bottlesHit;
-	public static int[] goal;
+    public static int[] goal;
+    bool solved;
 
 	// Use this for initialization
 	void Start() 
@@ -34,9 +35,10 @@ public class BottlePuzzleManager : Trigger {
 				total++;
 			}
 		}
-		if (total >= goal.GetLength(0))
+		if (total >= goal.GetLength(0) && !solved)
 		{
             Activate(true);
+            solved = true;
         }
 
     }

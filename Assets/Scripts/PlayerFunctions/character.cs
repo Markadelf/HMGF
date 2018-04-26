@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class character : MonoBehaviour {
 
+    public static bool VR;
 
 	//use 0 for basic, 1 for bathroom, 2 for crunchy, 3 for metal, and 4 for rubble
 	[SerializeField] private int stepType;
@@ -64,6 +65,7 @@ public class character : MonoBehaviour {
     // Use this for initialization
     void Start() 
 	{
+        VR = usingVRHeadset;
         Time.maximumDeltaTime = .1f;
 		stepType = 0;
     }

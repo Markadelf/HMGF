@@ -6,17 +6,19 @@ public class Grabable : EaseToLocation
 {
     Transform normalParent;
     Rigidbody ObjectRigidbody;
+    bool grabbed;
 	
 	void Start ()
     {
 		ObjectRigidbody = gameObject.GetComponent<Rigidbody>();
-	}
+        grabbed = false;
+    }
 	
 	
 
     public virtual void Grab(GameObject grabber)
     {
-        if (!enabled)
+        if (!enabled || grabbed)
             return;
         normalParent = transform.parent;
 
@@ -26,16 +28,18 @@ public class Grabable : EaseToLocation
 
         if(ObjectRigidbody != null) { ObjectRigidbody.useGravity = false; }
         Move(grabber.transform.position, 10);
+        grabbed = true;
     }
 
     public virtual void Release()
     {
-        if (!enabled)
+        if (!enabled || !grabbed)
             return;
         transform.parent = normalParent;
 
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
         if (ObjectRigidbody != null) { ObjectRigidbody.useGravity = true; }
+        grabbed = false;
     }
 }

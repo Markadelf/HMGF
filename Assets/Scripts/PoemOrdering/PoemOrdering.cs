@@ -55,7 +55,6 @@ public class PoemOrdering : Trigger {
 	void Update() 
 	{
 		//two requirements: must be vertically-aligned, and must be in order going down from the first
-		solved = false;
 
 		int alignCompares = 0;
 		bool linearAlignment = false;
@@ -149,7 +148,7 @@ public class PoemOrdering : Trigger {
 			inOrderZ = true;
 		}
 
-		if (inOrderX && inOrderZ && linearAlignment)
+		if (inOrderX && inOrderZ && linearAlignment && !solved)
 		{
 			solved = true;
             Activate(solved);

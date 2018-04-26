@@ -21,7 +21,11 @@ public class GrabLever : Grabable {
     public override void Grab(GameObject grabber)
     {
         if (_lever != null)
+        {
             _lever.Flip();
+            if(!_lever.GetState())
+                _lever.Flip();
+        }
     }
 
     public override void Release()
