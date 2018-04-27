@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Test Scenes/testSceneMark.unity
-    guid: 45a1ece39f87ce94da77ede709b43294
-  - enabled: 0
-    path: Assets/Scenes/PrototypeAsstes.unity
-    guid: a2d123bd761056447bb1212031a58af4
   - enabled: 1
     path: Assets/Scenes/MansionMainLightingAndSound.unity
     guid: 11d683eeb61402647881dfc5432e9925
