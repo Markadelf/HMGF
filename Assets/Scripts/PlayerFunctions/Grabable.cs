@@ -33,7 +33,7 @@ public class Grabable : EaseToLocation
 
     public virtual void Release()
     {
-        if (!enabled || !grabbed)
+        if (!enabled || !grabbed || gameObject == null)
             return;
         transform.parent = normalParent;
 

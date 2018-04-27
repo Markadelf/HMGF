@@ -7,7 +7,8 @@ public enum LogicType
     And,
     Or,
     XOr,
-    Count
+    Count,
+    None
 }
 
 //A logic gate based on a system of Levers
@@ -27,7 +28,33 @@ public class LeverSystem : Trigger {
         {
             Levers[i].Listen(this);
         }
-	}
+        int count = 0;
+        for (int i = 0; i < Levers.Count; i++)
+        {
+            if (Levers[i].GetState())
+                count++;
+        }
+        switch (Logic)
+        {
+            case LogicType.And:
+                Activate(count == Levers.Count);
+                break;
+            case LogicType.Or:
+                Activate(count > 0);
+                break;
+            case LogicType.Count:
+                Activate(count);
+                break;
+            case LogicType.None:
+                Activate(count == 0);
+                break;
+            case LogicType.XOr:
+                Activate(count % 2);
+                break;
+            default:
+                break;
+        }
+    }
 
 
 	
@@ -67,6 +94,9 @@ public class LeverSystem : Trigger {
             case LogicType.Count:
                 Activate(count);
                 break; 
+            case LogicType.None:
+                Activate(count == 0);
+                break;
             case LogicType.XOr:
                 Activate(count % 2);
                 break;
