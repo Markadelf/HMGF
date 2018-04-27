@@ -9,6 +9,7 @@ public class VaultLock : Trigger {
     public float Range;
     public int KeysNeeded;
     private int target;
+    bool done;
 
     // Use this for initialization
     void Start()
@@ -30,8 +31,9 @@ public class VaultLock : Trigger {
                 i--;
             }
         }
-        if(keys.Count <= target)
+        if(keys.Count <= target && !done)
         {
+            done = true;
             Activate(true);
         }
     }

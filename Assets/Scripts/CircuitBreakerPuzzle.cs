@@ -9,15 +9,21 @@ public class CircuitBreakerPuzzle : Grabable {
 	public AudioSource flipOffSound;
 	private float timer;
 	private float timeTillReclick;
+    float target;
+    float current;
 	[SerializeField] private GameObject[] allSwitchedSwitches;
 	[SerializeField] private Material offMaterial;
 	[SerializeField] private Material onMaterial;
+
+    private bool flippedOff;
 
 	// Use this for initialization
 	void Start() 
 	{
 		timer = 0.0f;
 		timeTillReclick = 0.3f;
+
+        flippedOff = true;
 	}
 	
 	// Update is called once per frame
@@ -53,13 +59,27 @@ public class CircuitBreakerPuzzle : Grabable {
 				{
 					flipOffSound.Play();
 				}
-			}
+
+                if (flippedOff)
+                {
+                    transform.localRotation = Quaternion.Euler(20.0f, 0.0f, 90.0f);
+                    flippedOff = false;
+                }
+                else
+                {
+                    transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+                    flippedOff = true;
+                }
+            }
 
 			timer = 0.0f;
 		}
-
-		timer += Time.deltaTime;
-	}
+        if(timer < timeTillReclick)
+		    timer += Time.deltaTime;
+        else
+            timer = timeTillReclick;
+        transform.localRotation = Quaternion.Euler(Mathf.Lerp(current, target, timer / timeTillReclick), 0.0f, 90.0f);
+    }
 
     public override void Grab(GameObject grabber)
     {
@@ -76,7 +96,29 @@ public class CircuitBreakerPuzzle : Grabable {
             }
         }
 
-		timer = 0.0f;
+        if (gameObject.GetComponent<StoreNumTicks>().numTicks % 2 == 0)
+        {
+            flipOnSound.Play();
+        }
+        else
+        {
+            flipOffSound.Play();
+        }
+
+        if (flippedOff)
+        {
+            target = 30;
+            current = 0;
+            flippedOff = false;
+        }
+        else
+        {
+            target = 0;
+            current = 30;
+            flippedOff = true;
+        }
+
+        timer = 0.0f;
     }
 
     public override void Release()
