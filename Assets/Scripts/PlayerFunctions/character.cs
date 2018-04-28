@@ -193,10 +193,10 @@ public class character : MonoBehaviour {
 	            }
 	            if (rig != null)
 	            {
-	                Vector3 change = (transform.position - head.transform.position);
+	                //Vector3 change = (transform.position - head.transform.position);
 	                //change.y = 0;
 	                //transform.position -= change;
-	                rig.transform.position += (change);
+	                //rig.transform.position += (change);
 	            }
 	        }
 	        else

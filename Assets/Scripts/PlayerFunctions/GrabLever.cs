@@ -11,10 +11,11 @@ public class GrabLever : Grabable {
 	// Use this for initialization
 	void Start () {
         _lever = GetComponent<Lever>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        GrabType = GrabAnimation.Point;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 

@@ -22,6 +22,7 @@ public class OpenDoor : Grabable {
 	// Use this for initialization
 	void Start() 
 	{
+        GrabType = GrabAnimation.Door;
 		timeTillReclick = 60.0f;
 		timer = 0.0f;
 		doorClosed = true;

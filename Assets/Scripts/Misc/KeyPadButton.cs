@@ -10,6 +10,7 @@ public class KeyPadButton : Grabable {
 
 	// Use this for initialization
 	void Start () {
+        GrabType = GrabAnimation.Point;
         _originalZ = transform.localPosition.z;
 	}
 	

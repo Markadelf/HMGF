@@ -22,7 +22,7 @@ public class CircuitBreakerPuzzle : Grabable {
 	{
 		timer = 0.0f;
 		timeTillReclick = 0.3f;
-
+        GrabType = GrabAnimation.Point;
         flippedOff = true;
 	}
 	

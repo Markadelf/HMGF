@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GrabAnimation
+{
+    Grab,
+    Door,
+    Point
+}
+
 public class Grabable : EaseToLocation
 {
     Transform normalParent;
     Rigidbody ObjectRigidbody;
-    bool grabbed;
+    public bool grabbed;
+    public GrabAnimation GrabType = GrabAnimation.Grab;
 	
 	void Start ()
     {
