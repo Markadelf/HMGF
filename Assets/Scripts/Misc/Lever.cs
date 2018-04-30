@@ -48,10 +48,11 @@ public class Lever : TriggerEvent {
                 _animator.Play("Flip Back");
             }
         }
-        for (int i = 0; i < _listeners.Count; i++)
-        {
-            _listeners[i].Notify(this);
-        }
+        if(_listeners != null)
+            for (int i = 0; i < _listeners.Count; i++)
+            {
+                _listeners[i].Notify(this);
+            }
     }
 
 
